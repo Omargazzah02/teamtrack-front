@@ -1,7 +1,7 @@
 <template>
   <div class="w-full px-4 sm:px-6 lg:px-8">
     <div class="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center p-6">
-      <div>
+      <div v-if="project">
         <h2 class="title text-2xl sm:text-3xl font-bold">{{ project?.title }}</h2>
         <p>{{ project.description }}</p>
       </div>
@@ -87,8 +87,8 @@ const tasksDone = ref([])
 
 onMounted(async () => {
   try {
-    getProject()
-    refreshTasks()
+   await getProject()
+   await refreshTasks()
 
 
 
